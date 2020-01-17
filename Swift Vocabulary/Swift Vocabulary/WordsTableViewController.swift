@@ -10,6 +10,13 @@ import UIKit
 
 class WordsTableViewController: UITableViewController {
 
+    var vocabWords: [VocabularyWord] = []
+    
+    func tableView(_ tableView: UITableViewController, numberOfRowsInSection section: VocabularyWord) -> Int{
+        let numberOfWords = vocabWords.count
+        return numberOfWords
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
