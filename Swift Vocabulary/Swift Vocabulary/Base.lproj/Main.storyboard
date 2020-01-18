@@ -33,7 +33,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="uLu-O1-Fb6" kind="showDetail" identifier="ShowDefinitionSegue" id="hMI-4D-RIc"/>
+                                    <segue destination="uLu-O1-Fb6" kind="show" identifier="ShowDefinitionSegue" id="hMI-4D-RIc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -53,11 +53,11 @@
             <objects>
                 <viewController id="uLu-O1-Fb6" customClass="DefinitionViewController" customModule="Swift_Vocabulary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wVt-f7-Npa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKC-Qz-et8">
-                                <rect key="frame" x="62" y="61" width="110" height="58"/>
+                                <rect key="frame" x="62" y="149" width="110" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="R48-VG-nbd"/>
                                 </constraints>
@@ -66,7 +66,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Definition here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QmZ-7H-zXM">
-                                <rect key="frame" x="62" y="197" width="240" height="98"/>
+                                <rect key="frame" x="62" y="285" width="240" height="64"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -85,6 +85,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cPE-mF-UaI"/>
                     </view>
+                    <navigationItem key="navigationItem" id="qdc-TS-BQQ"/>
                     <connections>
                         <outlet property="Definition" destination="QmZ-7H-zXM" id="MUD-qc-XFP"/>
                         <outlet property="SwiftTerm" destination="dKC-Qz-et8" id="hGG-bn-PjS"/>

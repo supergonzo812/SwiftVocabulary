@@ -93,7 +93,7 @@ class WordsTableViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow, let definitionVC = segue.destination as? DefinitionViewController{
                 let term = vocabWords[indexPath.row]
                 
-                definitionVC.SwiftTerm.text = term.word
+                definitionVC.vocabWord = term
             }
             
             
