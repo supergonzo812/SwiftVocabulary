@@ -19,6 +19,7 @@ class DefinitionViewController: UIViewController {
     @IBOutlet weak var SwiftTerm: UILabel!
     
     @IBOutlet weak var Definition: UITextView!
+    
     /*
     // MARK: - Navigation
 
