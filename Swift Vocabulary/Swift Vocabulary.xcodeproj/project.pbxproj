@@ -66,6 +66,7 @@
 				7257828623D26893000DD30E /* DefinitionViewController.swift */,
 				7257828923D26AD0000DD30E /* VocabularyWord.swift */,
 				7257827B23D26808000DD30E /* LaunchScreen.storyboard */,
+				7257827E23D26808000DD30E /* Info.plist */,
 			);
 			path = "Swift Vocabulary";
 			sourceTree = "<group>";
@@ -76,7 +77,6 @@
 				7257827023D26808000DD30E /* AppDelegate.swift */,
 				7257827223D26808000DD30E /* SceneDelegate.swift */,
 				7257827923D26808000DD30E /* Assets.xcassets */,
-				7257827E23D26808000DD30E /* Info.plist */,
 			);
 			path = "New Group";
 			sourceTree = "<group>";

@@ -10,8 +10,7 @@ import UIKit
 
 class WordsTableViewController: UITableViewController {
 
-    var vocabWords: [VocabularyWord] = []
-    
+    var vocabWords: [VocabularyWord] = [(VocabularyWord(word: "Word 1", definition: "Definition 1")), (VocabularyWord(word: "Word 2", definition: "Defintion 2"))]
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +26,7 @@ class WordsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -94,7 +93,7 @@ class WordsTableViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow, let definitionVC = segue.destination as? DefinitionViewController{
                 let term = vocabWords[indexPath.row]
                 
-                definitionVC.SwiftTerm = term.word
+                definitionVC.SwiftTerm.text = term.word
             }
             
             
