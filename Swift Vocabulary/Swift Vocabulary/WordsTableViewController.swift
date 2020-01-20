@@ -10,7 +10,7 @@ import UIKit
 
 class WordsTableViewController: UITableViewController {
 
-    var vocabWords: [VocabularyWord] = [(VocabularyWord(word: "Word 1", definition: "Definition 1")), (VocabularyWord(word: "Word 2", definition: "Defintion 2"))]
+    var vocabWords: [VocabularyWord] = [(VocabularyWord(word: "String", definition: "A string is a series of characters, such as 'hello, world' or 'albatross'. Swift strings are represented by the String type. The contents of a String can be accessed in various ways, including as a collection of Character values.")), (VocabularyWord(word: "Function", definition: "Functions are self-contained chunks of code that perform a specific task. You give a function a name that identifies what it does, and this name is used to “call” the function to perform its task when needed."))]
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,42 +48,39 @@ class WordsTableViewController: UITableViewController {
  
         @IBAction func AddTerm(_ sender: UIButton) {
         
-        let alert = UIAlertController(title: "Add a new term", message: nil, preferredStyle: .alert)
+
+        let alert = UIAlertController(title: "Add new term", message: nil, preferredStyle: .alert)
+        self.present(alert, animated: true)
+            
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
         alert.addTextField(configurationHandler: {UITextField in UITextField.placeholder = "New Term"})
-            self.present(alert, animated: true)
-        alert.addAction(UIAlertAction(title: "Add Term", style: .default, handler: {
-            action in
-            if let newTerm = alert.textFields?.first?.text{
-                for term in self.vocabWords{
-                    guard newTerm == term.word else{
-                        let errorAlert = UIAlertController(title: "Error", message: "Term already in dictionary", preferredStyle: UIAlertController.Style.alert)
-                        errorAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                        
-                        for _ in newTerm{
-                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                        alert.addTextField(configurationHandler: {UITextField in UITextField.placeholder = "Definition"})
-                        self.present(alert, animated: true)
-                        alert.addAction(UIAlertAction(title: "Add Definition", style: .default, handler: {
-                            
-                            action in
-                            if var newDefintion = alert.textFields?.first?.text{
-                                for term in self.vocabWords{
-                                    newDefintion = term.definition
-                                    return
-                                }
-                                }
-                                }
-                            )
-                            )
-                                
-                        }
-                            
-                            
-                        return
-                        self.vocabWords.append(VocabularyWord(word: "\(newTerm)", definition: "\(term.definition)"))
-                            }
-                }}}))
-    
+            
+        alert.addTextField(configurationHandler: {UITextField in UITextField.placeholder = "Definition"})
+            
+        func newTermAdded() {
+            guard let term = alert.textFields?[0].text,
+            let def = alert.textFields?[1].text else { return }
+            for entry in vocabWords{
+                if term == entry.word ||
+                def == entry.definition{
+                    
+                    print("already here")
+                    let errorAlert = UIAlertController(title: "Error", message: "Term or definition already in dictionary", preferredStyle: .alert)
+                    errorAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+                    self.present(errorAlert, animated: true, completion: nil)
+                    return
+                }
+            }
+            self.vocabWords.append(VocabularyWord(word: term, definition: def))
+            self.tableView.reloadData()
+            }
+           
+            alert.addAction(UIAlertAction(title: "Okay",
+                                         style: .default,
+                                         handler: {(alert: UIAlertAction!) in newTermAdded()}))
+            
+    }
+          
 }
-}
+
